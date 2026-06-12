@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+     PROJECT LANDING / README TEMPLATE
+     Everything below is PLACEHOLDER content for a made-up tool
+     called "Driftwood". Find-and-replace to make it yours:
+       - "Driftwood"            -> your project name
+       - the install command     -> your real install line
+       - "discord.gg/your-invite"-> your real invite
+       - feature cards            -> your real features
+       - links in nav/footer      -> your real URLs
+     ============================================================ -->
+<title>Driftwood — your project tagline here</title>
+<style>
+:root{
+  --bg:#0d1117; --bg-2:#010409; --card:#161b22; --card-2:#1a1f26;
+  --border:#30363d; --border-soft:#21262d;
+  --text:#c9d1d9; --muted:#8b949e; --bright:#f0f6fc;
+  --blue:#58a6ff; --green:#3fb950; --green-dim:#238636; --purple:#bc8cff;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans); background:var(--bg); color:var(--text);
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 15% 0%,rgba(88,166,255,.06),transparent 40%),
+    radial-gradient(circle at 85% 10%,rgba(63,185,80,.05),transparent 40%);
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(1,4,9,.85);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border-soft)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;
+  max-width:1040px;margin:0 auto;padding:12px 20px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--bright);font-weight:700;font-size:16px}
+.brand svg{fill:var(--bright)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:var(--text);font-size:14px;font-weight:500;padding:6px 12px;border-radius:6px}
+.nav-links a:hover{background:rgba(177,186,196,.12);text-decoration:none}
+
+/* hero */
+.hero{text-align:center;padding:72px 0 48px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;
+  color:var(--green);background:rgba(63,185,80,.12);border:1px solid rgba(63,185,80,.3);
+  padding:5px 12px;border-radius:20px;margin-bottom:22px;letter-spacing:.3px}
+.hero h1{font-size:clamp(38px,7vw,64px);line-height:1.05;font-weight:800;letter-spacing:-1.5px;
+  color:var(--bright);margin-bottom:18px}
+.hero h1 .accent{background:linear-gradient(120deg,var(--blue),var(--green));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:600px;margin:0 auto 32px}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;
+  padding:11px 22px;border-radius:8px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--green-dim);color:#fff;border-color:rgba(63,185,80,.4)}
+.btn-primary:hover{background:var(--green)}
+.btn-ghost{background:var(--card);color:var(--bright);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--muted);background:var(--card-2)}
+
+/* install / script box */
+.install{padding:8px 0 56px}
+.section-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+  color:var(--muted);margin-bottom:14px}
+.code-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.code-head{display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;border-bottom:1px solid var(--border-soft);background:var(--bg-2)}
+.code-head .dots{display:flex;gap:7px}
+.code-head .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.code-head .dots i:nth-child(1){background:#ff5f56}
+.code-head .dots i:nth-child(2){background:#ffbd2e}
+.code-head .dots i:nth-child(3){background:#27c93f}
+.code-head .fname{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.code-body{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:18px 16px;font-family:var(--mono);font-size:14px;overflow-x:auto}
+.code-body code{color:var(--text);white-space:pre}
+.code-body code .tok{color:var(--purple)}
+.copy-btn{flex-shrink:0;background:var(--card-2);border:1px solid var(--border);color:var(--text);
+  font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;cursor:pointer;transition:.2s;font-family:var(--sans)}
+.copy-btn:hover{border-color:var(--green);color:var(--green)}
+.copy-btn.copied{color:var(--green);border-color:var(--green)}
+
+/* features */
+.features{padding:24px 0 56px}
+.features h2{font-size:30px;font-weight:800;letter-spacing:-.6px;color:var(--bright);margin-bottom:8px}
+.features .sub{color:var(--muted);margin-bottom:32px;max-width:560px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;transition:.2s}
+.feat:hover{border-color:var(--muted);background:var(--card-2);transform:translateY(-3px)}
+.feat .ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(88,166,255,.12);border:1px solid rgba(88,166,255,.25);margin-bottom:14px;font-size:20px}
+.feat:nth-child(3n+2) .ico{background:rgba(63,185,80,.12);border-color:rgba(63,185,80,.25)}
+.feat:nth-child(3n) .ico{background:rgba(188,140,255,.12);border-color:rgba(188,140,255,.25)}
+.feat h3{font-size:16px;font-weight:700;color:var(--bright);margin-bottom:6px}
+.feat p{font-size:14px;color:var(--muted)}
+
+/* community */
+.community{padding:24px 0 64px}
+.comm-card{background:linear-gradient(145deg,var(--card),var(--card-2));
+  border:1px solid var(--border);border-radius:16px;padding:44px 32px;text-align:center;
+  position:relative;overflow:hidden}
+.comm-card::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(88,166,255,.1),transparent 60%);pointer-events:none}
+.comm-card h2{font-size:26px;font-weight:800;color:var(--bright);margin-bottom:10px;position:relative}
+.comm-card p{color:var(--muted);max-width:460px;margin:0 auto 24px;position:relative}
+.comm-card .invite{font-family:var(--mono);font-size:15px;color:var(--blue);
+  display:inline-block;padding:9px 18px;background:var(--bg-2);border:1px solid var(--border);
+  border-radius:8px;position:relative}
+
+/* footer */
+footer{border-top:1px solid var(--border-soft);background:var(--bg-2);padding:28px 0}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.foot-in span{color:var(--muted);font-size:13px}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a{color:var(--muted);font-size:13px}
+.foot-links a:hover{color:var(--blue)}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+@media (max-width:560px){.nav-links{display:none}.hero{padding:48px 0 36px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <svg width="26" height="26" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.36-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>
+      Driftwood
+    </a>
+    <ul class="nav-links">
+      <li><a href="#install">Install</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#">Docs</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">● Placeholder template — swap in your own project</span>
+    <h1>Driftwood is your<br><span class="accent">one-line pitch</span> here</h1>
+    <p>A made-up, open-source example tool used as filler. Replace this paragraph with a plain description of what your real project actually does for the people who use it.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#install">Get started</a>
+      <a class="btn btn-ghost" href="#">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section class="install wrap" id="install">
+  <div class="section-label">Install</div>
+  <div class="code-card">
+    <div class="code-head">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <span class="fname">terminal</span>
+    </div>
+    <div class="code-body">
+      <code id="snippet"><span class="tok">$</span> npm install driftwood   <span style="color:var(--muted)"># replace with your real command</span></code>
+      <button class="copy-btn" id="copyBtn" aria-label="Copy command">Copy</button>
+    </div>
+  </div>
+</section>
+
+<section class="features wrap" id="features">
+  <h2>Features</h2>
+  <p class="sub">All placeholder copy below. Keep this card layout and drop in your real features, three across on desktop.</p>
+  <div class="grid">
+    <div class="feat"><div class="ico">⚡</div><h3>Feature one</h3><p>Lorem ipsum dolor sit amet — describe what this does in one plain sentence the user would recognize.</p></div>
+    <div class="feat"><div class="ico">🧩</div><h3>Feature two</h3><p>Consectetur adipiscing elit. Say what the person controls, not how the system is built.</p></div>
+    <div class="feat"><div class="ico">🔒</div><h3>Feature three</h3><p>Sed do eiusmod tempor. Keep it specific and honest about what actually happens.</p></div>
+    <div class="feat"><div class="ico">📦</div><h3>Feature four</h3><p>Ut labore et dolore magna. One benefit per card reads cleaner than a long list.</p></div>
+    <div class="feat"><div class="ico">🔁</div><h3>Feature five</h3><p>Quis nostrud exercitation. Active voice — "syncs your notes," not "note-syncing capability."</p></div>
+    <div class="feat"><div class="ico">📊</div><h3>Feature six</h3><p>Duis aute irure dolor. Trim any card that doesn't earn its place on the page.</p></div>
+  </div>
+</section>
+
+<section class="community wrap" id="community">
+  <div class="comm-card">
+    <h2>Join the community</h2>
+    <p>Placeholder for your community blurb. Tell people what they'll get by joining — updates, support, a place to share what they've built.</p>
+    <span class="invite">discord.gg/your-invite</span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Your Project. Placeholder template.</span>
+    <div class="foot-links">
+      <a href="#">License</a>
+      <a href="#">Docs</a>
+      <a href="#">Privacy</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copyBtn');
+  var snippet=document.getElementById('snippet');
+  if(btn&&snippet){
+    btn.addEventListener('click',function(){
+      // copies just the command, ignoring the comment span
+      var text='npm install driftwood';
+      navigator.clipboard.writeText(text).then(function(){
+        btn.textContent='Copied';btn.classList.add('copied');
+        setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied');},1600);
+      }).catch(function(){
+        btn.textContent='Copy failed';
+        setTimeout(function(){btn.textContent='Copy';},1600);
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
